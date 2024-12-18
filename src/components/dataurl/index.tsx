@@ -8,23 +8,23 @@ import ContentCopyIcon from '@/icons/content-copy.svg';
 
 import styles from './styles.module.scss';
 
-type DataUrlFile = {
+type DataURLFile = {
     name: string;
-    dataUrl: string;
+    dataURL: string;
     nodeRef: RefObject<HTMLDivElement | null>;
 };
 
-const Dataurl = () => {
-    const [dataUrls, setDataUrls] = useState<DataUrlFile[]>([]);
+const DataURL = () => {
+    const [dataURLs, setDataURLs] = useState<DataURLFile[]>([]);
 
     const onDrop = useCallback((acceptedFiles: File[]) => {
         acceptedFiles.forEach((file) => {
             const reader = new FileReader();
 
             reader.onload = () => {
-                setDataUrls((old) => [
+                setDataURLs((old) => [
                     ...old,
-                    { name: file.name, dataUrl: reader.result as string, nodeRef: createRef() },
+                    { name: file.name, dataURL: reader.result as string, nodeRef: createRef() },
                 ]);
             };
 
@@ -34,8 +34,8 @@ const Dataurl = () => {
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
-    const handleCopyToClipboard = (dataUrl: string) => {
-        void navigator.clipboard.writeText(dataUrl);
+    const handleCopyToClipboard = (dataURL: string) => {
+        void navigator.clipboard.writeText(dataURL);
     };
 
     return (
@@ -49,8 +49,8 @@ const Dataurl = () => {
                 )}
             </div>
 
-            <TransitionGroup component='div' className={styles.dataUrls}>
-                {dataUrls.map(({ dataUrl, name, nodeRef }, index) => (
+            <TransitionGroup component='div' className={styles.dataURLs}>
+                {dataURLs.map(({ dataURL, name, nodeRef }, index) => (
                     <CSSTransition
                         key={index}
                         nodeRef={nodeRef}
@@ -61,13 +61,13 @@ const Dataurl = () => {
                                 <span className={styles.name}>{name}</span>
                                 <div
                                     className={styles.copy}
-                                    onClick={() => handleCopyToClipboard(dataUrl)}
+                                    onClick={() => handleCopyToClipboard(dataURL)}
                                     aria-label='Copy to clipboard'>
                                     <ContentCopyIcon />
                                 </div>
                             </div>
-                            <span className={styles.dataUrl} onClick={() => handleCopyToClipboard(dataUrl)}>
-                                {dataUrl}
+                            <span className={styles.dataURL} onClick={() => handleCopyToClipboard(dataURL)}>
+                                {dataURL}
                             </span>
                         </div>
                     </CSSTransition>
@@ -77,4 +77,4 @@ const Dataurl = () => {
     );
 };
 
-export default Dataurl;
+export default DataURL;
