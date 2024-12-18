@@ -5,6 +5,10 @@ import nextBundleAnalyzer from '@next/bundle-analyzer';
 const nextConfig: NextConfig = {
     output: 'export',
 
+    images: {
+        unoptimized: true,
+    },
+
     webpack: (config) => ({
         ...config,
 
