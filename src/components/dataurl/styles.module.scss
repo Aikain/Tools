@@ -1,0 +1,118 @@
+@use 'sass:color';
+@use '@/styles/variables';
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    .dropzone {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        outline: none;
+        transition: border 0.24s ease-in-out;
+
+        padding: 2rem;
+
+        border: 2px dashed variables.$grey;
+        background-color: color.adjust(variables.$light-grey, $alpha: -0.4);
+
+        text-align: center;
+        cursor: pointer;
+
+        width: 400px;
+
+        &:hover,
+        &.dragActive {
+            border-color: variables.$dark-grey;
+            background-color: color.adjust(variables.$light-grey, $alpha: -0.2);
+        }
+    }
+
+    .dataUrls {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 0.5rem;
+
+        .itemEnter {
+            height: 0;
+            opacity: 0;
+        }
+
+        .itemEnterActive {
+            height: 7rem;
+            opacity: 1;
+            transition: all 500ms ease-in;
+        }
+
+        .item {
+            background: variables.$light-grey;
+            padding: 1rem;
+            border-radius: 1rem;
+
+            width: 400px;
+
+            overflow: hidden;
+            line-height: 1.25rem;
+
+            .header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: .5rem;
+
+                margin: -1rem -1rem 0 -1rem;
+                padding: 1rem;
+
+                background: variables.$grey;
+                border-top-left-radius: 1rem;
+                border-top-right-radius: 1rem;
+
+                width: 100%;
+
+                .name {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+
+                .copy {
+                    cursor: pointer;
+                    color: #000000;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: variables.$dark-grey;
+                    }
+
+                    &:active {
+                        color: variables.$grey;
+                    }
+
+                    svg {
+                        display: block;
+                    }
+                }
+            }
+
+            .dataUrl {
+                display: -webkit-box;
+
+                padding-top: 1rem;
+
+                overflow: hidden;
+                overflow-wrap: anywhere;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+}
