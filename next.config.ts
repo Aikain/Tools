@@ -3,6 +3,8 @@ import type { NextConfig } from 'next';
 import nextBundleAnalyzer from '@next/bundle-analyzer';
 
 const nextConfig: NextConfig = {
+    output: 'export',
+
     webpack: (config) => ({
         ...config,
 
