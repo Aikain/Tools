@@ -19,6 +19,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    environment: production
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -47,6 +50,7 @@ jobs:
       - name: Build with Next.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PLAUSIBLE_URL: ${{ vars.PLAUSIBLE_URL }}
         run: |
           export NEXT_PUBLIC_SITE_URL=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')
           yarn build
@@ -58,7 +62,7 @@ jobs:
 
   deploy:
     environment:
-      name: github-pages
+      name: production
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
