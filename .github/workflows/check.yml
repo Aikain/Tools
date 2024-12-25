@@ -14,6 +14,10 @@ jobs:
       group: lint
       cancel-in-progress: true
 
+    permissions:
+      security-events: write
+      contents: read
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,6 +34,14 @@ jobs:
 
       - name: Run lint
         run: yarn lint
+          --format @microsoft/eslint-formatter-sarif
+          --output-file eslint-results.sarif
+        continue-on-error: true
+
+      - name: Upload analysis results to GitHub
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: eslint-results.sarif
 
   ts-check:
     runs-on: ubuntu-latest
