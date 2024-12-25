@@ -1,5 +1,6 @@
 'use client';
 
+import { usePlausible } from 'next-plausible';
 import { RefObject, createRef, useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -17,23 +18,29 @@ type DataURLFile = {
 };
 
 const DataURL = () => {
+    const plausible = usePlausible();
     const [dataURLs, setDataURLs] = useState<DataURLFile[]>([]);
 
-    const onDrop = useCallback((acceptedFiles: File[]) => {
-        acceptedFiles.forEach((file) => {
-            const id = nanoid();
-            setDataURLs((old) => [...old, { id, name: file.name, dataURL: null, nodeRef: createRef() }]);
+    const onDrop = useCallback(
+        (acceptedFiles: File[]) => {
+            acceptedFiles.forEach((file) => {
+                const id = nanoid();
+                setDataURLs((old) => [...old, { id, name: file.name, dataURL: null, nodeRef: createRef() }]);
 
-            const reader = new FileReader();
+                const reader = new FileReader();
 
-            reader.onload = () =>
-                setDataURLs((old) =>
-                    old.map((value) => (value.id === id ? { ...value, dataURL: reader.result as string } : value)),
-                );
+                reader.onload = () =>
+                    setDataURLs((old) =>
+                        old.map((value) => (value.id === id ? { ...value, dataURL: reader.result as string } : value)),
+                    );
 
-            reader.readAsDataURL(file);
-        });
-    }, []);
+                reader.readAsDataURL(file);
+
+                plausible('dataurl-convert');
+            });
+        },
+        [plausible],
+    );
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
