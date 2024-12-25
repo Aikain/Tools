@@ -48,7 +48,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          NEXT_PUBLIC_SITE_URL=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')
+          export NEXT_PUBLIC_SITE_URL=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')
           yarn build
 
       - name: Upload artifact
