@@ -4,6 +4,8 @@ import { ReactNode } from 'react';
 
 import '@/styles/globals.scss';
 
+import styles from './styles.module.scss';
+
 const rubik = Rubik({
     variable: '--font-rubik',
     subsets: ['latin'],
@@ -20,7 +22,9 @@ interface Props {
 
 const RootLayout = ({ children }: Props) => (
     <html lang='en'>
-        <body className={rubik.variable}>{children}</body>
+        <body className={rubik.variable}>
+            <div className={styles.root}>{children}</div>
+        </body>
     </html>
 );
 
