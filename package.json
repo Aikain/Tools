@@ -15,7 +15,7 @@
         "postinstall": "next telemetry disable",
         "lint": "next lint",
         "ts:check": "tsc --noemit",
-        "prettier": "prettier --write 'src/**/*.{ts,tsx,scss}' package.json prettier.config.mjs tsconfig.json"
+        "prettier": "prettier --write 'src/**/*.{ts,tsx,scss}' '*.{m,}{j,t}s' package.json tsconfig.json"
     },
     "dependencies": {
         "@svgr/webpack": "^8.1.0",
