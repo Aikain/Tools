@@ -32,7 +32,6 @@ const RootLayout = ({ children }: Props) => (
                     domain={new URL(process.env.NEXT_PUBLIC_SITE_URL).hostname}
                     enabled={!!process.env.PLAUSIBLE_URL}
                     selfHosted
-                    trackLocalhost
                     taggedEvents
                     trackOutboundLinks
                 />
