@@ -1,22 +1,24 @@
 import Link from 'next/link';
+import { ReactNode } from 'react';
 
 import ArrowBackIcon from '@/icons/arrow-back.svg';
 
-import NotFoundLogger from '@/components/notFoundLogger';
-
 import styles from './styles.module.scss';
 
-const Page = () => (
+interface Props {
+    children: ReactNode;
+}
+
+const Layout = ({ children }: Props) => (
     <>
         <div className={styles.backToHomePage}>
             <Link href='/'>
                 <ArrowBackIcon />
             </Link>
         </div>
-        <div className={styles.notFound}>
-            <h1>There is nothing here ...</h1>
-        </div>
-        <NotFoundLogger />
+
+        {children}
     </>
 );
-export default Page;
+
+export default Layout;

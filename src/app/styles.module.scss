@@ -1,3 +1,6 @@
+@use '@/styles/elements';
+@use '@/styles/variables';
+
 .root {
     height: 100%;
 
@@ -26,17 +29,85 @@
 
     overflow-y: auto;
     scrollbar-gutter: stable both-edges;
+
+    .contentWrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+
+        .content {
+            flex: 1;
+            min-height: 0;
+        }
+
+        .githubLink {
+            align-self: center;
+
+            padding: 0.5rem;
+
+            a,
+            svg {
+                display: inline-block;
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
 }
 
 .page {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
 
-    text-align: center;
-    text-wrap: pretty;
+    width: min(#{variables.$breakpoint-extra-large}, 100vw - 2rem);
+    margin: 0 auto;
 
-    padding: 2rem;
+    padding: 2rem 0 10rem;
 
-    height: 100%;
+    @media screen and (min-width: variables.$breakpoint-small) {
+        width: min(#{variables.$breakpoint-extra-large}, 100vw - 4rem);
+    }
+
+    @media screen and (min-width: variables.$breakpoint-large) {
+        padding-top: 4rem;
+    }
+
+    .title {
+        text-align: left;
+    }
+
+    .divider {
+        width: 100%;
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        .card {
+            flex-basis: 100%;
+
+            color: inherit;
+            text-decoration: inherit;
+
+            @media screen and (min-width: variables.$breakpoint-medium) {
+                flex-basis: calc(50% - 0.5rem);
+            }
+        }
+    }
+}
+
+.backToHomePage {
+    padding: 0.5rem;
+
+    a {
+        color: inherit;
+    }
+}
+
+.notFound {
+    padding: 10vh 1rem;
 }
