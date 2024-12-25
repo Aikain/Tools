@@ -11,3 +11,11 @@ $color: #fafafa;
 
 $card-background: color.adjust($background, $whiteness: 10%);
 $card-border: color.adjust($background, $whiteness: 20%);
+
+// breakpoints
+
+$breakpoint-extra-small: 320px;
+$breakpoint-small: 480px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1024px;
+$breakpoint-extra-large: 1200px;
