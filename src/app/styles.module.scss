@@ -35,14 +35,6 @@
         flex-direction: column;
         min-height: 100%;
 
-        .backToHomePage {
-            padding: 0.5rem;
-
-            a {
-                color: inherit;
-            }
-        }
-
         .content {
             flex: 1;
             min-height: 0;
@@ -111,10 +103,14 @@
     }
 }
 
-.notFound {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.backToHomePage {
+    padding: 0.5rem;
 
-    height: 100%;
+    a {
+        color: inherit;
+    }
+}
+
+.notFound {
+    padding: 10vh 1rem;
 }
