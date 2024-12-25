@@ -29,6 +29,38 @@
 
     overflow-y: auto;
     scrollbar-gutter: stable both-edges;
+
+    .contentWrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+
+        .backToHomePage {
+            padding: 0.5rem;
+
+            a {
+                color: inherit;
+            }
+        }
+
+        .content {
+            flex: 1;
+            min-height: 0;
+        }
+
+        .githubLink {
+            align-self: center;
+
+            padding: 0.5rem;
+
+            a,
+            svg {
+                display: inline-block;
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
 }
 
 .page {
