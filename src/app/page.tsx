@@ -8,6 +8,12 @@ const tools = [
         description: 'Convert the file to a "data" URL according to RFC2397-standard directly in your browser',
         path: 'dataurl',
     },
+    {
+        title: 'Show debug infos',
+        description:
+            'Displays basic information about the browser you are using, such as resolution or preferred language.',
+        path: 'debug-info',
+    },
 ];
 
 const Page = () => (
