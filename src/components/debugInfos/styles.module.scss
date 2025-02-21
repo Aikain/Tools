@@ -10,6 +10,8 @@
         flex-direction: column;
         gap: .25rem;
 
+        max-width: variables.$breakpoint-large;
+
         @media screen and (min-width: variables.$breakpoint-small) {
             flex-direction: row;
         }
