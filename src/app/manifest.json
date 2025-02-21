@@ -1,0 +1,66 @@
+{
+    "name": "Simple web tools",
+    "short_name": "Web Tools",
+    "description": "Simple small tools made by Aikain that work directly in the browser",
+    "icons": [
+        {
+            "src": "/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/apple-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/images/screenshots/frontpage-wide.png",
+            "sizes": "1100x640",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Available tools"
+        },
+        {
+            "src": "/images/screenshots/dataurl-wide.png",
+            "sizes": "1100x640",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "\"data\" URL -tool"
+        },
+        {
+            "src": "/images/screenshots/debug-info-wide.png",
+            "sizes": "1100x640",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Debug info -tool"
+        },
+        {
+            "src": "/images/screenshots/frontpage-narrow.png",
+            "sizes": "750x1334",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Available tools"
+        },
+        {
+            "src": "/images/screenshots/dataurl-narrow.png",
+            "sizes": "750x1334",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "\"data\" URL -tool"
+        },
+        {
+            "src": "/images/screenshots/debug-info-narrow.png",
+            "sizes": "750x1334",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Debug info -tool"
+        }
+    ],
+    "theme_color": "#242424",
+    "background_color": "#242424",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+}
