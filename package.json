@@ -18,6 +18,7 @@
         "prettier": "prettier --write 'src/**/*.{ts,tsx,scss}' '*.{m,}{j,t}s' package.json tsconfig.json"
     },
     "dependencies": {
+        "@serwist/next": "^9.0.11",
         "@svgr/webpack": "^8.1.0",
         "nanoid": "^5.1.0",
         "next": "15.1.7",
@@ -47,6 +48,7 @@
         "globals": "^16.0.0",
         "prettier": "^3.5.1",
         "prettier-eslint": "^16.3.0",
+        "serwist": "^9.0.11",
         "typescript": "^5.7.3",
         "typescript-eslint": "^8.24.1"
     }
