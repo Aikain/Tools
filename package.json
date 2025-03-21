@@ -21,7 +21,7 @@
         "@serwist/next": "^9.0.11",
         "@svgr/webpack": "^8.1.0",
         "nanoid": "^5.1.0",
-        "next": "15.1.7",
+        "next": "15.2.3",
         "next-plausible": "^3.12.4",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
