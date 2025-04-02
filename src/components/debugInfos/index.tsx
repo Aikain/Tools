@@ -9,7 +9,8 @@ const DebugInfos = () => {
 
     const generateInfos = () =>
         setInfos([
-            { name: 'Preferred language', value: navigator.language },
+            { name: 'Preferred language (browser)', value: navigator.language },
+            { name: 'Preferred language (OS)', value: Intl.DateTimeFormat().resolvedOptions().locale },
             {
                 name: 'Screen size',
                 value: `${screen.availWidth}px x ${screen.availHeight}px${screen.availWidth !== screen.width || screen.availHeight !== screen.height ? ` (${screen.width}px x ${screen.height}px)` : ''}`,
