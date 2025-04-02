@@ -8,7 +8,7 @@
     .row {
         display: flex;
         flex-direction: column;
-        gap: .25rem;
+        gap: 0.25rem;
 
         max-width: variables.$breakpoint-large;
 
@@ -23,7 +23,6 @@
         }
 
         .value {
-
         }
     }
 }

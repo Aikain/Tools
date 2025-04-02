@@ -23,9 +23,7 @@
             "@/icons/*": ["./public/images/icons/*"],
             "@/styles/*": ["./src/styles/*"]
         },
-        "types": [
-            "@serwist/next/typings"
-        ]
+        "types": ["@serwist/next/typings"]
     },
     "include": ["next-env.d.ts", "src/types.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
     "exclude": ["node_modules"]

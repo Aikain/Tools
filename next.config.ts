@@ -43,6 +43,8 @@ const withBundleAnalyzer = nextBundleAnalyzer({
 });
 
 const withSerwist = withSerwistInit({
+    // TODO: https://github.com/serwist/serwist/issues/54
+    disable: process.env.NODE_ENV !== 'production',
     swSrc: 'src/app/sw.ts',
     swDest: 'public/sw.js',
 });
