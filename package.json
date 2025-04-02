@@ -8,7 +8,7 @@
         "email": "ville.nupponen@aika.in"
     },
     "scripts": {
-        "dev": "next dev --turbopack",
+        "dev": "SERWIST_SUPPRESS_TURBOPACK_WARNING=1 next dev --turbopack",
         "build": "next build",
         "build:analyze": "ANALYZE=true next build",
         "start": "next start",
