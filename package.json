@@ -1,7 +1,7 @@
 {
     "name": "tools",
     "version": "0.1.0",
-    "packageManager": "yarn@4.8.1",
+    "packageManager": "yarn@4.9.2",
     "private": true,
     "author": {
         "name": "Ville Nupponen",
