@@ -6,6 +6,7 @@ import { ReactNode } from 'react';
 
 import GithubIcon from '@/icons/github.svg';
 import '@/styles/globals.scss';
+import { SerwistProvider } from '@serwist/next/react';
 
 import styles from './styles.module.scss';
 
@@ -68,28 +69,21 @@ interface Props {
 const RootLayout = ({ children }: Props) => (
     <html lang='en'>
         <body className={rubik.variable}>
-            {process.env.NEXT_PUBLIC_SITE_URL && (
-                <PlausibleProvider
-                    customDomain={process.env.PLAUSIBLE_URL}
-                    domain={new URL(process.env.NEXT_PUBLIC_SITE_URL).hostname}
-                    enabled={!!process.env.PLAUSIBLE_URL}
-                    selfHosted
-                    taggedEvents
-                    trackOutboundLinks
-                />
-            )}
+            <SerwistProvider swUrl='/sw.js' disable={process.env.NODE_ENV !== 'production'}>
+                {process.env.PLAUSIBLE_URL && <PlausibleProvider src={process.env.PLAUSIBLE_URL} />}
 
-            <div className={styles.root}>
-                <div className={styles.contentWrapper}>
-                    <div className={styles.content}>{children}</div>
+                <div className={styles.root}>
+                    <div className={styles.contentWrapper}>
+                        <div className={styles.content}>{children}</div>
 
-                    <div className={styles.githubLink}>
-                        <Link href='https://github.com/Aikain/Tools' target='_blank'>
-                            <GithubIcon />
-                        </Link>
+                        <div className={styles.githubLink}>
+                            <Link href='https://github.com/Aikain/Tools' target='_blank'>
+                                <GithubIcon />
+                            </Link>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </SerwistProvider>
         </body>
     </html>
 );

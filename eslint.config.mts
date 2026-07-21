@@ -4,25 +4,26 @@ import compat from 'eslint-plugin-compat';
 import prettier from 'eslint-plugin-prettier/recommended';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import globals from 'globals';
+import { defineConfig } from 'eslint/config';
 import ts from 'typescript-eslint';
 
-export default [
-    { files: ['**/*.{mjs,ts,tsx}'], settings: { react: { version: 'detect' } } },
-    { languageOptions: { globals: globals.browser } },
-    js.configs.recommended,
-    ...ts.configs.recommended,
-    react.configs.flat.recommended,
-    react.configs.flat['jsx-runtime'],
-    // TODO: clean up
-    // https://github.com/facebook/react/pull/30774/files
+export default defineConfig(
     {
-        name: 'react-hooks/recommended',
-        plugins: { 'react-hooks': reactHooks },
-        rules: {
-            ...reactHooks.configs.recommended.rules,
+        files: ['**/*.{mjs,ts,tsx}'],
+        settings: {
+            react: {
+                version: 'detect',
+            },
         },
     },
+
+    js.configs.recommended,
+    ts.configs.recommended,
+
+    react.configs.flat.recommended,
+    react.configs.flat['jsx-runtime'],
+    reactHooks.configs.flat['recommended-latest'],
+
     {
         name: 'next/recommended',
         plugins: { '@next/next': nextjs },
@@ -102,6 +103,7 @@ export default [
             ],
         },
     },
+
     // Oltava viimeinen tässä listassa!
     prettier,
-];
+);

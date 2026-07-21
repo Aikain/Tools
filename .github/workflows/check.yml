@@ -20,12 +20,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7.0.0
         with:
-          node-version: 22
+          node-version: 24
           cache: yarn
           cache-dependency-path: yarn.lock
 
@@ -39,7 +39,7 @@ jobs:
         continue-on-error: true
 
       - name: Upload analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v3.29.11
         with:
           sarif_file: eslint-results.sarif
 
@@ -52,17 +52,17 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7.0.0
         with:
-          node-version: 22
+          node-version: 24
           cache: yarn
           cache-dependency-path: yarn.lock
 
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Run ts:check
-        run: yarn ts:check
+      - name: Run check-types
+        run: yarn check-types

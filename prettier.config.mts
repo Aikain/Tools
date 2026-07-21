@@ -1,12 +1,15 @@
-/** @type {import("prettier").Options} */
-const prettierConfig = {
+import { type Config } from 'prettier';
+
+const config: Config = {
     endOfLine: 'auto',
     bracketSameLine: true,
     jsxSingleQuote: true,
     printWidth: 120,
     singleQuote: true,
     tabWidth: 4,
+
     plugins: ['@trivago/prettier-plugin-sort-imports'],
+
     importOrder: [
         '^((react|next)(.*)$)|^((react|next)$)',
         '<THIRD_PARTY_MODULES>',
@@ -19,4 +22,4 @@ const prettierConfig = {
     importOrderSortSpecifiers: true,
 };
 
-export default prettierConfig;
+export default config;
