@@ -19,6 +19,7 @@
         "**/.yarn": true,
         "**/node_modules": true,
         "**/out": true,
+        "**/public/sw*": true,
         "**/yarn.lock": true,
     },
     "files.insertFinalNewline": true,

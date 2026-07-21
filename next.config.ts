@@ -1,8 +1,5 @@
 import type { NextConfig } from 'next';
 
-import nextBundleAnalyzer from '@next/bundle-analyzer';
-import withSerwistInit from '@serwist/next';
-
 const nextConfig: NextConfig = {
     output: 'export',
 
@@ -35,16 +32,4 @@ const nextConfig: NextConfig = {
     },
 };
 
-const withBundleAnalyzer = nextBundleAnalyzer({
-    enabled: process.env.ANALYZE === 'true',
-    openAnalyzer: false,
-});
-
-const withSerwist = withSerwistInit({
-    // TODO: https://github.com/serwist/serwist/issues/54
-    disable: process.env.NODE_ENV !== 'production',
-    swSrc: 'src/app/sw.ts',
-    swDest: 'public/sw.js',
-});
-
-export default withBundleAnalyzer(withSerwist(nextConfig));
+export default nextConfig;
