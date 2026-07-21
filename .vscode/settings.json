@@ -1,0 +1,49 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "always",
+    },
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "eslint.options": {
+        "flags": [
+            "unstable_native_nodejs_ts_config",
+        ],
+    },
+    "files.associations": {
+        "*.yml": "yaml",
+    },
+    "files.exclude": {
+        "**/.next": true,
+        "**/.yarn": true,
+        "**/node_modules": true,
+        "**/out": true,
+        "**/yarn.lock": true,
+    },
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "yaml.format.singleQuote": true,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml",
+        "editor.tabSize": 2,
+    },
+}

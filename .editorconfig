@@ -1,15 +1,16 @@
 root = true
 
 [*]
-end_of_line = lf
-insert_final_newline = true
-
-[*.{ts,tsx,js,json,yml,scss}]
 charset = utf-8
 indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
 
-[*.{ts,tsx,js,json,scss}]
+[*.{html,json,mts,scss,ts,tsx}]
 indent_size = 4
 
-[*.yml]
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{yml,yaml}]
 indent_size = 2
